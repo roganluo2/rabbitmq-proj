@@ -21,4 +21,6 @@ public final class Constants {
     public static final String FANOUT_EXCHANGE = "spring.boot.fanout.exchange";
 
     public static final String TOPIC_ROUTER_KEY = "topic.study.gupao.rabbitmq";
+
+    public static final String DELAY_PLUGIN_EXCHANGE = "spring.boot.delay.plugin.exchange";
 }

@@ -13,7 +13,18 @@ public class ProducerApplication {
         ConfigurableApplicationContext run = SpringApplication.run(ProducerApplication.class, args);
 //        sendSimpleMessage(run);
 //        sendDelayMessage(run);
-        sendMessageDoubleExchange(run);
+//        sendMessageDoubleExchange(run);
+        sendDelayPluginMessage(run);
+    }
+
+    private static void sendDelayPluginMessage(ConfigurableApplicationContext run) {
+        DelayPluginMessageSender bean = run.getBean(DelayPluginMessageSender.class);
+
+        for(int i = 0;i < 10; i++)
+        {
+            System.out.println("发送第"+i+"条消息，时间:" + LocalDateTime.now());
+            bean.send(i);
+        }
     }
 
     private static void sendMessageDoubleExchange(ConfigurableApplicationContext run) {

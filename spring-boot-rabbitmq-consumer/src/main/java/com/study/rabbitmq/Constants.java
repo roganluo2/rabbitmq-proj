@@ -40,4 +40,8 @@ public final class Constants {
     public static final String DEAD_LETTER_QUEUE = "spring.boot.dead.backup.queue";
     /***************死信队列************************/
 
+    public static final String DELAY_PLUGIN_EXCHANGE = "spring.boot.delay.plugin.exchange";
+
+
+    public static final String DELAY_PLUGIN_QUEUE = "spring.boot.delay.plugin.queue";
 }
