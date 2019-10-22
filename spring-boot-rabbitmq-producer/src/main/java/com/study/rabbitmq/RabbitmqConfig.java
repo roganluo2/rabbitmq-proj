@@ -12,11 +12,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitmqConfig {
 
-    @Bean
-    public DirectExchange directExchange()
-    {
-        return new DirectExchange(Constants.EXCHANGE_NAME);
-    }
 
 
 }
