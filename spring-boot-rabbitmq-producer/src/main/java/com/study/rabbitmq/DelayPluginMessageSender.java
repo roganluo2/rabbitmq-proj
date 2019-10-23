@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -31,9 +32,9 @@ public class DelayPluginMessageSender {
         MessageProperties messageProperties = new MessageProperties();
 // 延迟的间隔时间，目标时刻减去当前时刻
         messageProperties.setHeader("x-delay", delayTime.getTime() - now.getTime());
-
         Message message = new Message(msg.getBytes(), messageProperties);
-        rabbitTemplate.convertAndSend(Constants.DELAY_PLUGIN_EXCHANGE,"#", message );
+// 不能在本地测试，必须发送消息到安装了插件的 Linux 服务端
+        rabbitTemplate.convertAndSend(Constants.DELAY_PLUGIN_EXCHANGE, "#", message);
     }
 
 }
